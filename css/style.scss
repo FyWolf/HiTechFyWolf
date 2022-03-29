@@ -1,16 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-@mixin displayFlex($justify) {
+$linkColor: #0c6588;
+$lightBlueBackground: #e2f7ff;
+
+
+@mixin displayFlex($justify, $align, $direction, $wrap) {
     display: flex;
     justify-content: $justify;
+    align-content: $align;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
 }
 
 body {
     font-family: "Open Sans";
+
     header {
+
         .topNavbar {
-            background-color: #dff4fc;
-            padding: 10px;
+            background-color: $lightBlueBackground;
+            padding: 1vh;
             text-align: center;
 
             p {
@@ -19,7 +28,7 @@ body {
                 button {
                     border: none;
                     background: none;
-                    color: #216a8a;
+                    color: $linkColor;
                     font-weight: 500;
                 }
             }
@@ -28,7 +37,7 @@ body {
             background-image: url(../images/header.jpg);
             background-size: auto;
             background-position: center;
-            padding: 3vh 2vw;
+            padding: 3vh 2vw 0 2vw;
             text-align: center;
             color: white;
 
@@ -37,14 +46,132 @@ body {
                 filter: drop-shadow(0 0 5px rgba(0,0,0,0.4));
                 -webkit-filter: drop-shadow(0 0 5px rgba(0,0,0,0.4));
             }
+
             h1 {
                 margin: 0;
                 font-family: "Raleway";
                 font-weight: 400;
                 text-shadow: 0 0 5px rgba(0,0,0,0.4);
             }
+
+            input {
+                display: none
+            }
+
             div {
-                @include displayFlex(center)
+                @include displayFlex(center, space-around, row, nowrap);
+
+                div {
+                    @include displayFlex(center, space-around, column, nowrap);
+                    margin: 1vh;
+
+                    i {
+                        font-size: 10vw;
+                    }
+                }
+            }
+        }
+        .bottomNavbar {
+            @include displayFlex(center, space-evenly, column, nowrap);
+            background-color: $lightBlueBackground;
+
+            button {
+                color: $linkColor;
+                font-weight: 600;
+                margin: 1vh;
+                border: none;
+                background: none;
+                i {
+                    font-size: 7vw;
+                    margin-right: 5px;
+                    vertical-align: sub;
+                }
+            }
+        }
+    }
+
+    .productPage {
+        width: 95vw;
+        margin: auto;
+
+        .productIntroduction {
+            margin-bottom: 6vh;
+
+            nav {
+                display: none;
+
+                .breadcrumb-item + .breadcrumb-item::before {
+                    content: ">";
+                }
+            }
+
+            h1 {
+                margin: 5vh 0 3vh 0;
+                font-family: "Raleway";
+            }
+
+            div {
+                @include displayFlex(flex-start, flex-start, column, nowrap);
+
+                a {
+                    text-decoration: underline;
+                    color: $linkColor;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .presentation {
+
+            h1 {
+                font-family: "Raleway";
+            }
+
+            .badge {
+                @include displayFlex(flex-start, center, row, wrap);
+                span {
+                    background-color: rgb(237, 237, 237);
+                    font-size: 4vw;
+                    color: black;
+                    font-weight: 400;
+                    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+                    margin: 1vw;
+                    padding: 1% 2%;
+                }
+            }
+
+            .carousel {
+
+                div {
+
+                    div {
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                ol {
+                    bottom: -20vw;
+
+                    li {
+                        width: initial;
+                        height: initial;
+                        text-indent: initial;
+
+                        a {
+
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+
+                p {
+                    margin-bottom: 25vw;
+                }
             }
         }
     }
