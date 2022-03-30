@@ -122,9 +122,14 @@ body {
         }
 
         .presentation {
+            margin-bottom: 10vh;
 
             h1 {
                 font-family: "Raleway";
+            }
+
+            p {
+                font-size: 3.5vw
             }
 
             .badge {
@@ -173,6 +178,67 @@ body {
                     margin-bottom: 25vw;
                 }
             }
+
+            .productPrices {
+                @include displayFlex(none, none, column, nowrap);
+                background-color: #eeeeee;
+                margin-bottom: 4vh;
+
+                .priceTop {
+                    @include displayFlex(none, none, row, nowrap);
+                    padding: 4%;
+
+                    .priceLeft {
+                        @include displayFlex(center, center, column, nowrap);
+                        width: 80%;
+                        text-align: center;
+
+                        p {
+                           font-size: 9vw;
+                           margin: 0;
+                        }
+
+                        span {
+                            font-size: 3vw;
+                        }
+                    }
+
+                    .priceRight {
+                        @include displayFlex(center, center, column, nowrap);
+
+                        .priceBtnTop {
+                            border: none;
+                            background-color: #236587;
+                            color: white;
+                            height: 60%;
+                            padding: 10%;
+                        }
+
+                        .priceBtnBottom {
+                            border: none;
+                            background-color: white;
+                            color: #236587;
+                            font-size: 3vw;
+                            font-weight: 600;
+                            height: 40%;
+                            padding: 10%;
+                        }
+                    }
+                }
+
+                .priceBottom {
+                    @include displayFlex(center, center, row, nowrap);
+                    background-color: #d6d6d6;
+
+                    p {
+                        margin: 20px;
+                    }
+                }
+            }
         }
+    }
+
+    .destription {
+
     }
 }
