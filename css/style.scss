@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 $linkColor: #0c6588;
 $lightBlueBackground: #e2f7ff;
-
 
 @mixin displayFlex($justify, $align, $direction, $wrap) {
     display: flex;
@@ -14,9 +13,7 @@ $lightBlueBackground: #e2f7ff;
 
 body {
     font-family: "Open Sans";
-
     header {
-
         .topNavbar {
             background-color: $lightBlueBackground;
             padding: 1vh;
@@ -43,19 +40,20 @@ body {
 
             img {
                 width: 15vw;
-                filter: drop-shadow(0 0 5px rgba(0,0,0,0.4));
-                -webkit-filter: drop-shadow(0 0 5px rgba(0,0,0,0.4));
+                filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
+                -webkit-filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
             }
 
-            h1 {
+            .brandName {
+                font-size: 10vw;
                 margin: 0;
                 font-family: "Raleway";
                 font-weight: 400;
-                text-shadow: 0 0 5px rgba(0,0,0,0.4);
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
             }
 
-            input {
-                display: none
+            form {
+                display: none;
             }
 
             div {
@@ -92,7 +90,29 @@ body {
 
     .productPage {
         width: 95vw;
+        max-width: 1140px;
         margin: auto;
+
+        h2,
+        h3 {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        h3 {
+            font-size: 5vw;
+        }
+
+        h2::after,
+        h3::after {
+            content: "";
+            width: 100%;
+            height: 30px;
+            margin-left: 1em;
+            background-image: radial-gradient(rgb(173, 173, 173) 4px, 2px, transparent);
+            background-size: 30px 30px;
+        }
 
         .productIntroduction {
             margin-bottom: 6vh;
@@ -101,7 +121,7 @@ body {
                 display: none;
 
                 .breadcrumb-item + .breadcrumb-item::before {
-                    content: ">";
+                    content: "❯";
                 }
             }
 
@@ -129,7 +149,7 @@ body {
             }
 
             p {
-                font-size: 3.5vw
+                font-size: 3.5vw;
             }
 
             .badge {
@@ -139,18 +159,15 @@ body {
                     font-size: 4vw;
                     color: black;
                     font-weight: 400;
-                    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+                    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
                     margin: 1vw;
                     padding: 1% 2%;
                 }
             }
 
             .carousel {
-
                 div {
-
                     div {
-
                         img {
                             width: 100%;
                         }
@@ -166,7 +183,6 @@ body {
                         text-indent: initial;
 
                         a {
-
                             img {
                                 width: 100%;
                             }
@@ -194,8 +210,8 @@ body {
                         text-align: center;
 
                         p {
-                           font-size: 9vw;
-                           margin: 0;
+                            font-size: 9vw;
+                            margin: 0;
                         }
 
                         span {
@@ -236,9 +252,105 @@ body {
                 }
             }
         }
+
+        .destription {
+            img {
+                border: 1px solid lightgray;
+                margin: 10px 0;
+                width: 100%;
+            }
+        }
+
+        .specifications {
+
+            div {
+                width: 80%;
+                margin: 5vh auto;
+
+                table {
+                    border: 2px solid lightgray;
+                    width: 100%;
+
+                    tbody {
+                        tr {
+                            border-bottom: 1px solid lightgray;
+                            padding: 1%;
+
+                            td {
+                                width: 50%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    .destription {
+    footer {
+        .topFooter {
+            @include displayFlex(center, space-evenly, column, nowrap);
+            background-color: $lightBlueBackground;
 
+            button {
+                color: $linkColor;
+                font-weight: 600;
+                margin: 1vh;
+                border: none;
+                background: none;
+                i {
+                    font-size: 7vw;
+                    margin-right: 5px;
+                    vertical-align: sub;
+                }
+            }
+        }
+
+        .bottomFooter {
+            background-color: #333;
+            color: #eee;
+            text-align: center;
+            padding: 4vh 0;
+
+            div {
+                margin: 4vh 0;
+            }
+
+            h2 {
+                margin-bottom: 3vh;
+            }
+
+            .payments {
+
+                img {
+                    width: 90%;
+                }
+            }
+
+            .socialsLinks {
+
+                div {
+                    margin: 0;
+
+                    i{
+                        color: #555;
+                        font-size: 7vw;
+                        margin: 0 1vw;
+                    }
+                }
+            }
+
+            .aboutUs {
+                display: flex;
+                flex-direction: column;
+
+                h2 {
+                    margin-bottom: 3vh;
+                }
+                a {
+                    color: #eee;
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 }
